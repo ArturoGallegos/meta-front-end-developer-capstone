@@ -1,37 +1,42 @@
-import profile from "../../assets/profile.jpg";
-import styles from "./Testimonials.module.sass";
+import profile from 'src/assets/images/profile.jpg';
+import styles from './Testimonials.module.sass';
+import Rating from 'src/components/Rating/Rating';
 
 const Testimonials = () => (
   <section className={styles.testimonials}>
     <div>
-      <h2>Testimonials</h2>
+      <h2>What people say about us!</h2>
       <ul>
         <li>
-          <img src={profile} alt="" />
+          <img src={profile} alt='' />
           <div>
-            <strong>Lorem, ipsum.</strong>
-            <p>Lorem ipsum dolor sit.</p>
+            <strong>Jorge Villa</strong>
+            <Rating rating={5} />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, voluptas?</p>
           </div>
         </li>
         <li>
-          <img src={profile} alt="" />
+          <img src={profile} alt='' />
           <div>
-            <strong>Quos, nulla.</strong>
-            <p>Sit vero minus atque.</p>
+            <strong>Marcela Negrete</strong>
+            <Rating rating={4} />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, voluptas?</p>
           </div>
         </li>
         <li>
-          <img src={profile} alt="" />
+          <img src={profile} alt='' />
           <div>
-            <strong>Voluptate, esse.</strong>
-            <p>Soluta, illo! Corrupti, impedit.</p>
+            <strong>Jhonatan Martinez</strong>
+            <Rating rating={5} />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, voluptas?</p>
           </div>
         </li>
         <li>
-          <img src={profile} alt="" />
+          <img src={profile} alt='' />
           <div>
-            <strong>Laudantium, dolorem?</strong>
-            <p>Enim cumque placeat consequuntur?</p>
+            <strong>Vanessa Benavides</strong>
+            <Rating rating={4} />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, voluptas?</p>
           </div>
         </li>
       </ul>
