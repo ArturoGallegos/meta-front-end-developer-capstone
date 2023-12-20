@@ -3,7 +3,7 @@ import Footer from 'src/components/Footer/Footer';
 import Header from 'src/components/Header/Header';
 
 type PropsType = {
-  children: JSX.Element
+  children: JSX.Element|JSX.Element[]
 }
 
 const Layout: React.FC<PropsType> = ({children}: PropsType) => {
