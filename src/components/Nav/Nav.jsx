@@ -3,8 +3,38 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './Nav.module.sass';
 import clsx from 'clsx';
+import { Link, useLocation, useRoutes } from 'react-router-dom';
+
+const menuItems = [
+  {
+    path: '/',
+    label: 'Home'
+  },
+  {
+    path: '/about',
+    label: 'About'
+  },
+  {
+    path: '/menu',
+    label: 'Menu'
+  },
+  {
+    path: '/reservations',
+    label: 'Reservations'
+  },
+  {
+    path: '/order-online',
+    label: 'Order Online'
+  },
+  {
+    path: '/login',
+    label: 'Login'
+  },
+]
 
 const Nav = ({ isMain }) => {
+  const location = useLocation();
+  console.log({ location })
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -25,36 +55,11 @@ const Nav = ({ isMain }) => {
   const Items = (
     <ul
       className={isMain ? styles.menuList : ''}>
-      <li>
-        <a onClick={handleCloseMenu} href='#home'>
-          Home
-        </a>
-      </li>
-      <li>
-        <a onClick={handleCloseMenu} href='#about'>
-          About
-        </a>
-      </li>
-      <li>
-        <a onClick={handleCloseMenu} href='#menu'>
-          Menu
-        </a>
-      </li>
-      <li>
-        <a onClick={handleCloseMenu} href='#reservations'>
-          Reservations
-        </a>
-      </li>
-      <li>
-        <a onClick={handleCloseMenu} href='#order-online'>
-          Order Online
-        </a>
-      </li>
-      <li>
-        <a onClick={handleCloseMenu} href='#login'>
-          Login
-        </a>
-      </li>
+      {menuItems.map((item, index) => <li key={index}>
+        <Link onClick={handleCloseMenu} className={location.pathname === item.path ? styles.current : ''} to={item.path}>
+          {item.label}
+        </Link>
+      </li>)}
     </ul>
   );
 
