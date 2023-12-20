@@ -1,9 +1,9 @@
-import styles from "./OrderDeliveryBtn.module.sass";
-import icon from '../../assets/Basket.svg'
+import styles from './OrderDeliveryBtn.module.sass';
 
 const OrderDeliveryBtn = () => (
-  <button className={styles.button}>Order a delivery
-  <img src={icon} alt="Basket icon"/>
+  <button className={styles.button}>
+    Order a delivery
+    <span className='icon-motorcycle'></span>
   </button>
 );
 
