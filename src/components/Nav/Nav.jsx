@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 // import iconBurger from "../../assets/iconBurger.svg";
-import { useEffect } from "react";
-import styles from "./Nav.module.sass";
-import clsx from "clsx";
+import { useEffect } from 'react';
+import styles from './Nav.module.sass';
+import clsx from 'clsx';
 
 const Nav = ({ isMain }) => {
   const [open, setOpen] = useState(false);
@@ -12,9 +12,9 @@ const Nav = ({ isMain }) => {
       setOpen(false);
     };
 
-    window.addEventListener("resize", onResize);
+    window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
@@ -24,37 +24,34 @@ const Nav = ({ isMain }) => {
 
   const Items = (
     <ul
-      className={clsx(styles.menuList, {
-        [styles.active]: open,
-      })}
-    >
+      className={isMain ? styles.menuList : ''}>
       <li>
-        <a onClick={handleCloseMenu} href="#home">
+        <a onClick={handleCloseMenu} href='#home'>
           Home
         </a>
       </li>
       <li>
-        <a onClick={handleCloseMenu} href="#about">
+        <a onClick={handleCloseMenu} href='#about'>
           About
         </a>
       </li>
       <li>
-        <a onClick={handleCloseMenu} href="#menu">
+        <a onClick={handleCloseMenu} href='#menu'>
           Menu
         </a>
       </li>
       <li>
-        <a onClick={handleCloseMenu} href="#reservations">
+        <a onClick={handleCloseMenu} href='#reservations'>
           Reservations
         </a>
       </li>
       <li>
-        <a onClick={handleCloseMenu} href="#order-online">
+        <a onClick={handleCloseMenu} href='#order-online'>
           Order Online
         </a>
       </li>
       <li>
-        <a onClick={handleCloseMenu} href="#login">
+        <a onClick={handleCloseMenu} href='#login'>
           Login
         </a>
       </li>
@@ -62,19 +59,13 @@ const Nav = ({ isMain }) => {
   );
 
   return isMain ? (
-    <nav>
-      {open ? (
-        <span className={styles.iconClose} onClick={handleMenu}>
-          X
-        </span>
-      ) : (
-        <img
-          // src={iconBurger}
-          alt="open/close menu"
-          className={styles.iconBurger}
-          onClick={handleMenu}
-        />
-      )}
+    <nav className={open ? styles.active: ''}>
+      <span
+        className={clsx(styles.iconMenu, {
+          'icon-cancel': open,
+          'icon-bars': !open,
+        })}
+        onClick={handleMenu}></span>
       {Items}
     </nav>
   ) : (
