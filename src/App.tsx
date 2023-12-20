@@ -1,9 +1,9 @@
-import './styles/styles.sass'
+import { RouterProvider } from 'react-router-dom';
+import 'src/styles/styles.sass'
+import router from 'src/router';
 
 function App() {
-  return (
-    <>Hola mundo</>
-  );
+  return (<RouterProvider router={router} />);
 }
 
 export default App;
