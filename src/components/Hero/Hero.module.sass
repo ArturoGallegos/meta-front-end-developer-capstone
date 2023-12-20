@@ -1,0 +1,34 @@
+@import src/styles/mixins
+
+.hero
+  background: var(--color-primary)
+  margin-bottom: 100px
+  >div
+    max-width: 900px
+    margin: 0 auto
+    padding: 30px 20px
+    @media (min-width: 860px)
+      display: flex
+  .content
+    width: 350px
+    margin-right: auto
+    color: var(--color-gray)
+    font-size: var(--size-content)
+    margin-bottom: 20px
+    h1
+      color: var(--color-alternative)
+      font-size: var(--size-title)
+      &+span
+        display: inline-block
+        margin-bottom: 20px
+        font-size: var(--size-actions)
+    a
+      @include Button
+  img
+    min-width: 400px
+    width: 100%
+    height: 400px
+    margin-bottom: -100px
+    border-radius: 10px
+    @media (min-width: 860px)
+      width: 400px

@@ -1,40 +1,38 @@
 import { useState } from 'react';
-// import iconBurger from "../../assets/iconBurger.svg";
-import { useEffect } from 'react';
-import styles from './Nav.module.sass';
 import clsx from 'clsx';
-import { Link, useLocation, useRoutes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styles from './Nav.module.sass';
 
 const menuItems = [
   {
     path: '/',
-    label: 'Home'
+    label: 'Home',
   },
   {
     path: '/about',
-    label: 'About'
+    label: 'About',
   },
   {
     path: '/menu',
-    label: 'Menu'
+    label: 'Menu',
   },
   {
     path: '/reservations',
-    label: 'Reservations'
+    label: 'Reservations',
   },
   {
     path: '/order-online',
-    label: 'Order Online'
+    label: 'Order Online',
   },
   {
     path: '/login',
-    label: 'Login'
+    label: 'Login',
   },
-]
+];
 
 const Nav = ({ isMain }) => {
   const location = useLocation();
-  console.log({ location })
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -53,18 +51,19 @@ const Nav = ({ isMain }) => {
   const handleCloseMenu = () => setOpen(false);
 
   const Items = (
-    <ul
-      className={isMain ? styles.menuList : ''}>
-      {menuItems.map((item, index) => <li key={index}>
-        <Link onClick={handleCloseMenu} className={location.pathname === item.path ? styles.current : ''} to={item.path}>
-          {item.label}
-        </Link>
-      </li>)}
+    <ul className={isMain ? styles.menuList : ''}>
+      {menuItems.map((item, index) => (
+        <li key={index}>
+          <Link onClick={handleCloseMenu} className={location.pathname === item.path ? styles.current : ''} to={item.path}>
+            {item.label}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 
   return isMain ? (
-    <nav className={open ? styles.active: ''}>
+    <nav className={open ? styles.active : ''}>
       <span
         className={clsx(styles.iconMenu, {
           'icon-cancel': open,
