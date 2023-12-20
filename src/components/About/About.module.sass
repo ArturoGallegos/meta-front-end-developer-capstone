@@ -1,19 +1,23 @@
 .about
-  background: #eee
-  padding: 40px
   >div
-    max-width: 860px
-    margin: 0 auto
-    display: flex
-    gap: 30px
+    max-width: 900px
+    margin: 20px auto
+    padding: 20px
+    @media (min-width: 768px)
+      display: flex
+      gap: 30px
     h3
       font-size: var(--size-subtitle)
+      color: var(--color-alternative)
       &+span
         font-size: 20px
         font-weight: bold
         display: block
         margin-bottom: 20px
+    .image
+      @media (min-width: 768px)
+        min-width: 300px
     img
-      width: 300px
-      height: 400px
+      width: 100%
+      height: 100%
       border-radius: 10px
