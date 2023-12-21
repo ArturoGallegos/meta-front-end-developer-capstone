@@ -1,10 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import ReservationForm from 'src/components/ReservationForm/ReservationForm';
+import { render, screen } from '@testing-library/react';
+import BookingForm from 'src/components/BookingForm/BookingForm';
+
+const availableTimes = ['11:30', '12:30', '13:00', '13:30', '14:00', '14:30', '15:30', '16:30', '17:30'];
 
 describe('Reservation form', () => {
-  const submitData = jest.fn();
   test('check inputs', async () => {
-    render(<ReservationForm />);
+    render(<BookingForm availableTimes={availableTimes} />);
     // const element = screen.getByTestId(/Date/i);
     const inputDate = screen.getByTestId('input-date');
     expect(inputDate).toBeInTheDocument();
@@ -27,5 +28,4 @@ describe('Reservation form', () => {
     const inputEmail = screen.getByTestId('input-email');
     expect(inputEmail).toBeInTheDocument();
   });
-
 });

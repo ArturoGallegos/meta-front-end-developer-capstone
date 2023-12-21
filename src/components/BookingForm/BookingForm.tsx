@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import styles from './ReservationForm.module.sass';
+import styles from './BookingForm.module.sass';
+import React from 'react';
 
-const availableTimes = ['11:30', '12:30', '13:00', '13:30', '14:00', '14:30', '15:30', '16:30', '17:30'];
 const occasions = ['Birthday', 'Anniversary', 'Other'];
 const defaultData = {
   date: '',
@@ -14,7 +14,11 @@ const defaultData = {
   email: '',
 };
 
-const ReservationForm = () => {
+type PropTypes = {
+  availableTimes: string[]
+}
+
+const BookingForm: React.FC<PropTypes> = ({availableTimes}: PropTypes) => {
   const navigate = useNavigate();
   const {
     register,
@@ -80,4 +84,4 @@ const ReservationForm = () => {
   );
 };
 
-export default ReservationForm;
+export default BookingForm;
