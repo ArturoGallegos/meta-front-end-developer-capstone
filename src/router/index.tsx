@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from 'src/pages/HomePage';
+import ReservationConfirmPage from 'src/pages/ReservationConfirmPage';
+import ReservationsPage from 'src/pages/ReservationsPage';
 import UnderConstructionPage from 'src/pages/UnderConstruction';
 
 const router = createBrowserRouter([
@@ -17,7 +19,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/reservations',
-    element: <UnderConstructionPage />,
+    element: <ReservationsPage />,
+  },
+  {
+    path: '/reservation-confirm',
+    element: <ReservationConfirmPage />,
   },
   {
     path: '/order-online',
